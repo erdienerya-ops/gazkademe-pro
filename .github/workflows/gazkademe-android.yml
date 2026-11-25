@@ -39,7 +39,8 @@ jobs:
           from pathlib import Path
           p=Path('android/app/src/main/assets/index.html')
           s=p.read_text()
-          s=s.replace('</body>', '<script src="fire.js"></script></body>')
+          s=s.replace('</head>', '<style id="gk-preload">html{background:#020817!important}body>main{visibility:hidden}</style></head>',1)
+          s=s.replace('</body>', '<script src="fire.js"></script><script>setTimeout(()=>document.getElementById("gk-preload")?.remove(),4500)</script></body>')
           p.write_text(s)
           PY
       - uses: gradle/actions/setup-gradle@v4
