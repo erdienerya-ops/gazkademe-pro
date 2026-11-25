@@ -32,6 +32,16 @@ jobs:
         run: |
           mkdir -p android/app/src/main/assets
           cp index.html android/app/src/main/assets/index.html
+          cp icon-512.png android/app/src/main/assets/gaz-logo.png
+          mkdir -p android/app/src/main/res/drawable-nodpi
+          cp icon-512.png android/app/src/main/res/drawable-nodpi/gaz_logo.png
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('android/app/src/main/assets/index.html')
+          s=p.read_text()
+          s=s.replace('</body>', '<script src="fire.js"></script></body>')
+          p.write_text(s)
+          PY
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.11.1'

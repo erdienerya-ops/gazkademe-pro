@@ -1,3 +1,3 @@
 plugins { id 'com.android.application' }
-android { namespace 'com.gazkademe.pro'; compileSdk 35; defaultConfig { applicationId 'com.gazkademe.pro'; minSdk 26; targetSdk 34; versionCode 1; versionName '1.0' } }
+android { namespace 'com.gazkademe.pro'; compileSdk 35; defaultConfig { applicationId 'com.gazkademe.pro'; minSdk 26; targetSdk 34; versionCode 2; versionName '2.0.0' } }
 dependencies { implementation 'androidx.webkit:webkit:1.12.1' }
